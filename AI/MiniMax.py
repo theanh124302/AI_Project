@@ -8,8 +8,9 @@ def findBestMove(game_state, valid_moves, return_queue, DEPTH):
     global next_move
     next_move = None
     random.shuffle(valid_moves)
-    findMoveMinMax(game_state, valid_moves, DEPTH, -CHECKMATE, CHECKMATE, DEPTH, game_state.white_to_move)
+    score = findMoveMinMax(game_state, valid_moves, DEPTH, -CHECKMATE, CHECKMATE, DEPTH, game_state.white_to_move)
     return_queue.put(next_move)
+    print("điểm trạng thái : ", score)
 def findMoveMinMax(game_state, valid_moves, depth, alpha, beta, DEPTH, white_to_move):
     global next_move
     if depth == 0:

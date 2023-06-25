@@ -7,7 +7,7 @@ pygame.init()
 window_width = 512
 window_height = 512
 window = pygame.display.set_mode((window_width, window_height))
-pygame.display.set_caption("Chess Game")
+pygame.display.set_caption("Chess AI G15")
 black = (0, 0, 0)
 white = (255, 255, 255)
 gray = (120, 120, 120)
@@ -84,7 +84,7 @@ def drawMenu():
         text_y = guide_button_y + (button_height - guide_text.get_height()) // 2
         window.blit(guide_text, (text_x, text_y))
     else:
-        guide_text = font.render("Guide", True, white)
+        guide_text = font.render("Control", True, white)
         text_x = guide_button_x + (button_width - guide_text.get_width()) // 2
         text_y = guide_button_y + (button_height - guide_text.get_height()) // 2
         window.blit(guide_text, (text_x, text_y))
@@ -107,31 +107,11 @@ def drawMenu():
         text_y = quit_button_y + (button_height - quit_text.get_height()) // 2
         window.blit(quit_text, (text_x, text_y))
 
-# def drawGuide():
-#
-#     window.fill(white)
-#     scaled_background = pygame.transform.scale(background_image, (window_width, window_height))
-#     window.blit(scaled_background, (0, 0))
-#     # Vẽ nút "Start" với hiệu ứng hover, press và click
-#     if back_button_pressed:
-#         pygame.draw.rect(window, dark_gray, (back_button_x, back_button_y, button_width, button_height), border_radius=5)
-#     elif back_button_hovered:
-#         pygame.draw.rect(window, gray, (back_button_x, back_button_y, button_width, button_height), border_radius=5)
-#     else:
-#         pygame.draw.rect(window, black, (back_button_x, back_button_y, button_width, button_height), border_radius=5)
-#
-#     back_text = font.render("Back", True, white)
-#     text_x = back_button_x + (button_width - back_text.get_width()) // 2
-#     text_y = back_button_x + (button_height - back_text.get_height()) // 2
-#     window.blit(back_text, (text_x, text_y))
-
-
 def drawGuide():
     window.fill(white)
     scaled_background = pygame.transform.scale(background_image, (window_width, window_height))
     window.blit(scaled_background, (0, 0))
 
-    # Vẽ nút "Start" với hiệu ứng hover, press và click
     if back_button_pressed:
         pygame.draw.rect(window, dark_gray, (back_button_x, back_button_y, button_width, button_height),
                          border_radius=5)
@@ -151,7 +131,7 @@ def drawGuide():
         text_y = back_button_x + (button_height - back_text.get_height()) // 2
         window.blit(back_text, (text_x, text_y))
 
-    background_rect = pygame.Rect(66, 120, 400, 300)
+    background_rect = pygame.Rect(66, 150, 400, 300)
     pygame.draw.rect(window, (0, 0, 0), background_rect)
     # Vẽ văn bản mới
     guide_text = font.render("Difficulty Level (Depth) : 0-5", True, white)
@@ -172,8 +152,8 @@ def drawGuide():
     guide_text = font.render("Monte Carlo Tree Search : C", True, white)
     window.blit(guide_text, (text_x1, text_y6))
 
-    # guide_text = font.render("Principal Variation Search : P", True, white)
-    # window.blit(guide_text, (text_x1, text_y7))
+    guide_text = font.render("Principal Variation Search : P", True, white)
+    window.blit(guide_text, (text_x1, text_y7))
 
 
 

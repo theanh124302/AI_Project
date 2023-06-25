@@ -21,6 +21,7 @@ def findBestMove(game_state, return_queue, simulations):
         selected_node = selectNode(root)
         expanded_node = expandNode(selected_node)
         simulation_result = simulate(expanded_node)
+
         backpropagate(expanded_node, simulation_result)
     best_move = getBestMove(root)
     return_queue.put(best_move)
@@ -52,6 +53,7 @@ def simulate(node):
         game_state.makeMove(random_move)
         valid_moves = game_state.getValidMoves()
         depth += 1
+    print(AI.Score.scoreBoard(game_state))
     return AI.Score.scoreBoard(game_state)
 
 def backpropagate(node, score):
@@ -70,7 +72,7 @@ def getBestUCB(children):
     return children[best_child_idx]
 
 def getBestMove(node):
-    best_score = float('-inf')
+    best_score = float('-inf') #-oo
     best_move = None
     for child in node.children:
         score = child.score / child.visits

@@ -126,10 +126,10 @@ class ChessGame:
                         if not ai_thinking:
                             self.algorithm = 3
                             print("Monte Carlo Tree Search")
-                    # if e.key == p.K_p:
-                    #     if not ai_thinking:
-                    #         self.algorithm = 4
-                    #         print("Principal Variation Search")
+                    if e.key == p.K_p:
+                        if not ai_thinking:
+                            self.algorithm = 4
+                            print("Principal Variation Search")
                     if e.key == p.K_a:
                         if not ai_thinking:
                             if self.algorithm == 1:
@@ -204,13 +204,13 @@ class ChessGame:
 
     def drawBoard(self, screen, level_color):
         if level_color == 0:
-            colors = [(255, 255, 255), (12, 226, 118)]
+            colors = [(255, 255, 255), (0, 226, 118)]
         if level_color == 1:
-            colors = [(255, 255, 255), (124, 202, 30)]
+            colors = [(255, 255, 255), (124, 202, 0)]
         if level_color == 2:
-            colors = [(255, 255, 255), (215, 226, 30)]
+            colors = [(255, 255, 255), (200, 200, 0)]
         if level_color == 3:
-            colors = [(255, 255, 255), (117, 27, 240)]
+            colors = [(255, 255, 255), (117, 0, 240)]
         if level_color == 4:
             colors = [(255, 255, 255), (255, 0, 0)]
         if level_color == 5:

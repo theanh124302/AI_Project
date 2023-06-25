@@ -1,6 +1,6 @@
 import random
 
-piece_score = {"K": 0, "Q": 6, "R": 3, "B": 1.5, "N": 1.5, "p": 1}
+piece_score = {"K": 0, "Q": 12, "R": 6, "B": 3, "N": 3, "p": 2}
 
 knight_scores = [[0.0, 0.1, 0.2, 0.2, 0.2, 0.2, 0.1, 0.0],
                  [0.1, 0.3, 0.5, 0.5, 0.5, 0.5, 0.3, 0.1],
@@ -69,6 +69,7 @@ def scoreBoard(game_state):
         return STALEMATE
     score = 0
     score1 = 0
+    score2 = 0
     for row in range(len(game_state.board)):
         for col in range(len(game_state.board[row])):
             piece = game_state.board[row][col]
@@ -80,7 +81,6 @@ def scoreBoard(game_state):
                     score += piece_score[piece[1]] + piece_position_score
                 if piece[0] == "b":
                     score -= piece_score[piece[1]] + piece_position_score
-                print(score)
     return score
 
 

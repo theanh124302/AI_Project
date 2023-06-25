@@ -7,9 +7,10 @@ def findBestMove(game_state, valid_moves, return_queue, DEPTH):
     global next_move
     next_move = None
     random.shuffle(valid_moves)
-    findMoveNegaMaxAlphaBeta(game_state, valid_moves, DEPTH, DEPTH, -CHECKMATE, CHECKMATE,
+    score = findMoveNegaMaxAlphaBeta(game_state, valid_moves, DEPTH, DEPTH, -CHECKMATE, CHECKMATE,
                              1 if game_state.white_to_move else -1)
     return_queue.put(next_move)
+    print("điểm trạng thái : ", score)
 
 def findMoveNegaMaxAlphaBeta(game_state, valid_moves, depth, DEPTH, alpha, beta, turn_multiplier):
     global next_move
