@@ -158,7 +158,8 @@ def drawGuide():
 
 
 def run_game():
-    subprocess.run(["python", "Main.py"])
+    python_path = sys.executable
+    subprocess.run([python_path, "Main.py"])
 
 while running:
     for event in pygame.event.get():
